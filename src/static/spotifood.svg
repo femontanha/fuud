@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 441 132">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-1 {
+        font-size: 100px;
+        font-family: Roboto-Regular, Roboto;
+      }
+    </style>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(-511 -253)">
+    <text id="Spotifood" class="cls-1" transform="translate(511 358)"><tspan x="0" y="0">Spotifood</tspan></text>
+    <ellipse id="Ellipse_1" data-name="Ellipse 1" class="cls-2" cx="23" cy="24" rx="23" ry="24" transform="translate(787 305)"/>
+    <ellipse id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="19.5" cy="22.5" rx="19.5" ry="22.5" transform="translate(847 308)"/>
+    <ellipse id="Ellipse_3" data-name="Ellipse 3" class="cls-2" cx="19.5" cy="22.5" rx="19.5" ry="22.5" transform="translate(902 309)"/>
+    <ellipse id="Ellipse_4" data-name="Ellipse 4" class="cls-2" cx="19.5" cy="22.5" rx="19.5" ry="22.5" transform="translate(641 309)"/>
+    <ellipse id="Ellipse_5" data-name="Ellipse 5" class="cls-2" cx="19.5" cy="22.5" rx="19.5" ry="22.5" transform="translate(586 309)"/>
+  </g>
+</svg>

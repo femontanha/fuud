@@ -1,0 +1,45 @@
+.app-login {
+  text-align: center;
+  padding: 0 15px;
+
+  &:before {
+    content: '';
+    background-image: url('../static/app-bg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 262px;
+    height: 400px;
+  }
+}
+
+.app-login__title {
+  font-size: 2.8rem;
+}
+
+.app-login__description,
+.app-login__disclaimer {
+  margin: 5px 0;
+}
+
+.app-login__disclaimer {
+  font-size: 1.2rem;
+}
+
+.app-login__link {
+  color: var(--main-text);
+}
+
+.app-login__btn {
+  background-color: var(--main-primary-color);
+  border-radius: var(--main-btn-radius);
+  color: #FFF;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 15px;
+  padding: 7px 10px 7px 10px;
+  text-decoration: none;
+}

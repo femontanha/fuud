@@ -1,0 +1,16 @@
+.playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 30px;
+}
+
+.playlist-item {
+    background-color: yellow;
+    text-align: center;
+
+    img {
+        display: block;
+        margin: 0 auto;
+        max-width: 200px;
+    }
+}
