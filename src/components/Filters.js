@@ -7,6 +7,7 @@ import FilterByLimit from './FilterByLimit';
 import FilterByPage from './FilterByPage';
 import * as enumFilters from '../enum/filters';
 import '../styles/filters.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Filters extends PureComponent {
     constructor(props) {

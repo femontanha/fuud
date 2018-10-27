@@ -33,16 +33,16 @@ class Login extends PureComponent {
         return(
             <div className="app-login">
                 <h1 className="app-login__title">
-                    Welcome to { APP_NAME }
+                    Bem vinda(o) ao { APP_NAME }
                 </h1>
                 <p className="app-login__description">
-                    To explore our experience, you need to login with your Spotify account.
+                    Para explorar nossa experiência, você precisa ter uma conta no Spotify.
                 </p>
                 <p className="app-login__disclaimer">
-                    Don't have Spotify account? <a href={ SPOTIFY_URL } className="app-login__link">Create an account</a>.
+                    Não tem uma conta no Spotify? <a href={ SPOTIFY_URL } className="app-login__link">Criar uma conta</a>.
                 </p>
                 <a href={ SPOTIFY_AUTHORIZE } className="app-login__btn">
-                    Login with Spotify
+                    Logar com o Spotify
                 </a>
             </div>
         )

@@ -1,0 +1,29 @@
+.app-notfound {
+  background-color: #f05660;
+  text-align: center;
+  height: calc(100vh - 90px);
+}
+
+.app-notfound__title {
+  margin: 0;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  color: #FFF;
+}
+
+.app-notfound__img {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto;
+}
+
+.app-notfound__link {
+  text-decoration: none;
+  background-color: var(--main-primary-color);
+  padding: 10px;
+  color: #FFF;
+  border-radius: var(--main-btn-radius);
+  margin-top: 30px;
+  display: inline-block;
+}

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
+import { ToastContainer, toast } from "react-toastify";
 import playlistService from '../services/playlist';
 import FiltersButton from '../components/FiltersButton';
 import Filters from '../components/Filters';
@@ -24,7 +25,6 @@ class Home extends PureComponent {
     }
 
     componentDidMount() {
-        // send default filters from state
         this.playlistAPI(this.state.filters);
     }
 
@@ -33,18 +33,15 @@ class Home extends PureComponent {
         .then(rsp => {
             if (rsp.status === 401) {
                 localStorage.removeItem('access-token');
-                this.props.history.push('/login');
+                this.props.history.push('/');
             }
 
             return rsp.json();
         })
         .then(data => {
-            // update state playlist and filters
             if (data.error) {
-                // TODO: Toast?
-                console.error(data.error.message);
+                toast.error(data.error.message);
             } else {
-                console.log(data)
                 this.setState({
                     message: data.message,
                     playlist: data.playlists.items,
@@ -80,6 +77,7 @@ class Home extends PureComponent {
 
         return(
             <div className="app-home">
+                <ToastContainer autoClose={3000} />
                 {
                     this.state.showFilters &&
                     <section className="app-home__filters">
