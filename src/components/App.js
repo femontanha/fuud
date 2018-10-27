@@ -13,11 +13,11 @@ class App extends React.Component {
     render() {
         return (
             <Router>
-                <div className="app-main">
+                <main className="app-main">
                     <Header />
                     <Route path="/login" component={Login} />
                     <PrivateRoute exact path="/" component={ Home } />
-                </div>
+                </main>
             </Router>
         );
     }

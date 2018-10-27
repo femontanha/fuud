@@ -11,6 +11,7 @@ class Home extends PureComponent {
         super(props);
 
         this.state = {
+            message: '',
             playlist: [],
             filters: {
                 country: 'BR',
@@ -43,7 +44,9 @@ class Home extends PureComponent {
                 // TODO: Toast?
                 console.error(data.error.message);
             } else {
+                console.log(data)
                 this.setState({
+                    message: data.message,
                     playlist: data.playlists.items,
                     filters: {
                         ...filters,
@@ -69,30 +72,37 @@ class Home extends PureComponent {
     }
 
     render() {
-        const { playlist, filters } = this.state;
+        const {
+            playlist,
+            filters,
+            message
+        } = this.state;
 
         return(
             <div className="app-home">
                 {
                     this.state.showFilters &&
-                    <div className="app-home__filters">
+                    <section className="app-home__filters">
                         <Filters
                             handleFilter={ this.handleFilter.bind(this) }
                             filtersValues={ filters }
                         />
-                    </div>
+                    </section>
                 }
-                <div className="app-home__filters-btn">
+                <section className="app-home__filters-btn">
                     <FiltersButton
                         onClick={ this.handleFiltersButton.bind(this) }
                         show={ this.state.showFilters }
                     />
-                </div>
-                <div className="app-home__playlist">
+                </section>
+                <section className="app-home__playlist">
+                    <h1 className="app-home__playlist-name">
+                        { message }
+                    </h1>
                     <Playlist
                         playlist={ playlist }
                     />
-                </div>
+                </section>
             </div>
         );
     }
