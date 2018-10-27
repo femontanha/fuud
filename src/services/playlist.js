@@ -1,19 +1,22 @@
-const endpoint = 'https://api.spotify.com/v1/browse/featured-playlists';
+import { SPOTIFY_FEATURED_PLAYLIST } from '../constants';
 
 // Reference
 // https://developer.spotify.com/documentation/web-api/reference/browse/get-list-featured-playlists/
-// locale
-// country
-// timestamp
-// limit
-// offset
 
 export default params => {
+    const {
+        country,
+        limit,
+        timestamp,
+    } = params;
+
+    const urlParams = `country=${ country }&limit=${ limit }&timestamp=${ timestamp }`
     const accessToken = localStorage.getItem('access-token');
     const options = {
-        headers: { Authorization: `Bearer ${accessToken}` },
-        params,
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        },
     };
 
-    return fetch(endpoint, options);
+    return fetch(`${ SPOTIFY_FEATURED_PLAYLIST }?${ urlParams }`, options);
 };
