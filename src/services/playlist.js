@@ -8,9 +8,10 @@ export default params => {
         country,
         limit,
         timestamp,
+        offset,
     } = params;
 
-    const urlParams = `country=${ country }&limit=${ limit }&timestamp=${ timestamp }`
+    const urlParams = `country=${ country }&limit=${ limit }&timestamp=${ timestamp }&offset=${ offset }`
     const accessToken = localStorage.getItem('access-token');
     const options = {
         headers: {

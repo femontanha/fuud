@@ -1,28 +1,47 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-const FilterByLimit = ({
-    id,
-    name,
-    validation,
-    initialValue,
-    onChange,
-}) => {
-    return (
-        <fieldset>
-            <p>
-                Escolha a <span>{ name }</span>
-            </p>
-            <input
-                id={ id }
-                type="number"
-                min={ validation.min }
-                max={ validation.max }
-                value={ initialValue }
-                onChange={ onChange }
-            />
-        </fieldset>
-    );
+class FilterByLimit extends PureComponent {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value: this.props.value,
+        }
+    }
+
+    handleChange(event) {
+        const key = event.target.id;
+        const value = parseInt(event.target.value);
+
+        this.setState({ value })
+        this.props.onChange(key, value);
+    }
+
+    render() {
+        const {
+            id,
+            name,
+            validation,
+        } = this.props;
+
+        return (
+            <fieldset className="filters-form__fieldset">
+                <label htmlFor={ id } className="filters-form__label">
+                    Escolha a <span>{ name }</span>
+                </label>
+                <input
+                    id={ id }
+                    type="number"
+                    min={ validation.min }
+                    max={ validation.max }
+                    value={ this.state.value }
+                    onChange={ this.handleChange.bind(this) }
+                    className="filters-form__input"
+                />
+            </fieldset>
+        );
+    }
 };
 
 FilterByLimit.propTypes = {
@@ -33,7 +52,8 @@ FilterByLimit.propTypes = {
         max: PropTypes.number,
         primitiveType: PropTypes.string.isRequired,
     }),
-    initialValue: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+    onChange: PropTypes.func.isRequired,
 };
 
 export default FilterByLimit;

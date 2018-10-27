@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import moment from 'moment';
 import playlistService from '../services/playlist';
+import FiltersButton from '../components/FiltersButton';
 import Filters from '../components/Filters';
 import Playlist from '../components/Playlist';
+import '../styles/home.scss';
 
-class Home extends Component {
+class Home extends PureComponent {
     constructor(props) {
         super(props);
 
@@ -13,13 +15,11 @@ class Home extends Component {
             filters: {
                 country: 'BR',
                 timestamp: moment().format(),
-                limit: 20,
-                // offset: 0,
-            }
+                limit: 4,
+                offset: 0,
+            },
+            showFilters: false,
         }
-
-        this.handleFilter = this.handleFilter.bind(this);
-        this.handleDate = this.handleDate.bind(this);
     }
 
     componentDidMount() {
@@ -31,9 +31,8 @@ class Home extends Component {
         return playlistService(filters)
         .then(rsp => {
             if (rsp.status === 401) {
-                // redirect to login
-                // remove localStorage?
                 localStorage.removeItem('access-token');
+                this.props.history.push('/login');
             }
 
             return rsp.json();
@@ -46,26 +45,17 @@ class Home extends Component {
             } else {
                 this.setState({
                     playlist: data.playlists.items,
-                    ...filters
-                })
+                    filters: {
+                        ...filters,
+                    }
+                });
             }
         })
         .catch(err => console.error(err));
 
     }
 
-    handleDate(key, date) {
-        const filters = {
-            ...this.state.filters,
-            [key]: date,
-        };
-
-        this.playlistAPI(filters);
-    }
-
-    handleFilter(event) {
-        const key = event.target.id;
-        const value = event.target.value;
+    handleFilter(key, value) {
         const filters = {
             ...this.state.filters,
             [key]: value,
@@ -74,18 +64,35 @@ class Home extends Component {
         this.playlistAPI(filters);
     }
 
+    handleFiltersButton() {
+        this.setState({ showFilters: !this.state.showFilters });
+    }
+
     render() {
-        console.log('render > this.state', this.state);
+        const { playlist, filters } = this.state;
 
         return(
-            <div>
-                <Filters
-                    handleFilter={ this.handleFilter }
-                    handleDate={ this.handleDate }
-                />
-                <Playlist
-                    playlist={ this.state.playlist }
-                />
+            <div className="app-home">
+                {
+                    this.state.showFilters &&
+                    <div className="app-home__filters">
+                        <Filters
+                            handleFilter={ this.handleFilter.bind(this) }
+                            filtersValues={ filters }
+                        />
+                    </div>
+                }
+                <div className="app-home__filters-btn">
+                    <FiltersButton
+                        onClick={ this.handleFiltersButton.bind(this) }
+                        show={ this.state.showFilters }
+                    />
+                </div>
+                <div className="app-home__playlist">
+                    <Playlist
+                        playlist={ playlist }
+                    />
+                </div>
             </div>
         );
     }

@@ -1,0 +1,27 @@
+.filters-form {
+  background-color: var(--main-primary-darken-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filters-form__fieldset {
+  text-align: center;
+  background-color: #FFF;
+  border: var(--main-primary-color) 1px dashed;
+  width: 200px;
+  margin: 30px 0 0 0;
+  padding: 10px;
+}
+
+.filters-form__label {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+// .filters-form__input {
+//   width: 100%;
+// }

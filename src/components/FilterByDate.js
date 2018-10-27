@@ -21,13 +21,14 @@ class FilterByDate extends PureComponent {
 
     render () {
         return (
-            <fieldset>
-                <p>
+            <fieldset className="filters-form__fieldset">
+                <label htmlFor={ this.props.id } className="filters-form__label">
                     Escolha a <span>{ this.props.name }</span>
-                </p>
+                </label>
                 <DatePicker
                     selected={ this.state.startDate }
                     onChange={ this.handleFormatDate.bind(this) }
+                    className="filters-form__input"
                 />
             </fieldset>
         );

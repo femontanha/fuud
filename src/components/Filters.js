@@ -1,10 +1,12 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import getFilters from '../services/filters';
 import FilterByCountry from './FilterByCountry';
 import FilterByDate from './FilterByDate';
 import FilterByLimit from './FilterByLimit';
 import FilterByPage from './FilterByPage';
 import * as enumFilters from '../enum/filters';
+import '../styles/filters.scss';
 
 class Filters extends PureComponent {
     constructor(props) {
@@ -31,9 +33,8 @@ class Filters extends PureComponent {
     render() {
         // TODO: Could use https://jaredpalmer.com/formik/
         return(
-            <div>
-                <h1>Filters</h1>
-                <form>
+            <Fragment>
+                <form className="filters-form">
                     {
                         this.state.filters.map(options => {
                             switch (options.id) {
@@ -42,6 +43,7 @@ class Filters extends PureComponent {
                                         <FilterByCountry
                                             { ...options }
                                             key={ options.id }
+                                            value={ this.props.filtersValues.country }
                                             onChange={ this.props.handleFilter }
                                         />
                                     );
@@ -50,7 +52,7 @@ class Filters extends PureComponent {
                                         <FilterByDate
                                             { ...options }
                                             key={ options.id }
-                                            onChange={ this.props.handleDate }
+                                            onChange={ this.props.handleFilter }
                                         />
                                     );
                                 case enumFilters.LIMIT:
@@ -58,21 +60,38 @@ class Filters extends PureComponent {
                                         <FilterByLimit
                                             { ...options }
                                             key={ options.id }
-                                            initialValue={ 0 }
+                                            value={ this.props.filtersValues.limit }
                                             onChange={ this.props.handleFilter }
                                         />
                                     );
-                                case enumFilters.OFFSET:
-                                    return <FilterByPage key={ options.id } { ...options } />
+                                // case enumFilters.OFFSET:
+                                //     return (
+                                //         <FilterByPage
+                                //             { ...options }
+                                //             key={ options.id }
+                                //             value={ this.props.filtersValues.offset }
+                                //             onChange={ this.props.handleFilter }
+                                //         />
+                                //     );
                                 default:
                                     return null;
                             }
                         })
                     }
                 </form>
-            </div>
+            </Fragment>
         );
     }
+};
+
+Filters.propTypes = {
+    handleFilter: PropTypes.func.isRequired,
+    filtersValues: PropTypes.shape({
+        country: PropTypes.string.isRequired,
+        timestamp: PropTypes.string.isRequired,
+        limit: PropTypes.number.isRequired,
+        offset: PropTypes.number.isRequired
+    }),
 };
 
 export default Filters;

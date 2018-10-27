@@ -1,0 +1,28 @@
+.filters-button {
+  background-color: var(--main-primary-darken-color);
+  border: 0;
+  color: #FFF;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 10px;
+  border-bottom-right-radius: var(--main-btn-radius);
+  border-bottom-left-radius: var(--main-btn-radius);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .5);
+}
+
+.filters-button__triangle {
+  border-color: transparent transparent #FFF transparent;
+  border-style: solid;
+  border-width: 0 5px 7px 5px;
+  display: inline-block;
+  height: 0;
+  vertical-align: middle;
+  width: 0;
+  margin-left: 10px;
+}
+
+.filters-button__triangle--inverted {
+  border-width: 7px 5px 0 5px;
+  border-color: #FFF transparent transparent transparent;
+}
