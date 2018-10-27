@@ -2,9 +2,11 @@ import React, { PureComponent } from 'react';
 import moment from 'moment';
 import { ToastContainer, toast } from "react-toastify";
 import playlistService from '../services/playlist';
+import parsePlayListUrl from '../lib/parsePlaylistUrl';
 import FiltersButton from '../components/FiltersButton';
 import Filters from '../components/Filters';
 import Playlist from '../components/Playlist';
+import Pagination from '../components/Pagination';
 import '../styles/home.scss';
 
 class Home extends PureComponent {
@@ -21,6 +23,13 @@ class Home extends PureComponent {
                 offset: 0,
             },
             showFilters: false,
+            pagination: {
+                limit: 0,
+                next: null,
+                offset: 0,
+                previous: null,
+                total: 0,
+            }
         }
     }
 
@@ -42,11 +51,27 @@ class Home extends PureComponent {
             if (data.error) {
                 toast.error(data.error.message);
             } else {
+                const {
+                    limit,
+                    next,
+                    offset,
+                    previous,
+                    total,
+                    items,
+                } = data.playlists;
+
                 this.setState({
                     message: data.message,
-                    playlist: data.playlists.items,
+                    playlist: items,
                     filters: {
                         ...filters,
+                    },
+                    pagination: {
+                        limit,
+                        next,
+                        offset,
+                        previous,
+                        total,
                     }
                 });
             }
@@ -68,18 +93,25 @@ class Home extends PureComponent {
         this.setState({ showFilters: !this.state.showFilters });
     }
 
+    handlePagination(url) {
+        const filters = parsePlayListUrl(url);
+        this.playlistAPI(filters);
+    }
+
     render() {
         const {
             playlist,
             filters,
-            message
+            message,
+            pagination,
+            showFilters,
         } = this.state;
 
         return(
             <div className="app-home">
                 <ToastContainer autoClose={3000} />
                 {
-                    this.state.showFilters &&
+                    showFilters &&
                     <section className="app-home__filters">
                         <Filters
                             handleFilter={ this.handleFilter.bind(this) }
@@ -90,7 +122,7 @@ class Home extends PureComponent {
                 <section className="app-home__filters-btn">
                     <FiltersButton
                         onClick={ this.handleFiltersButton.bind(this) }
-                        show={ this.state.showFilters }
+                        show={ showFilters }
                     />
                 </section>
                 <section className="app-home__playlist">
@@ -99,6 +131,10 @@ class Home extends PureComponent {
                     </h1>
                     <Playlist
                         playlist={ playlist }
+                    />
+                    <Pagination
+                        { ...pagination }
+                        onClick={ this.handlePagination.bind(this) }
                     />
                 </section>
             </div>

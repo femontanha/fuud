@@ -4,7 +4,6 @@ import getFilters from '../services/filters';
 import FilterByCountry from './FilterByCountry';
 import FilterByDate from './FilterByDate';
 import FilterByLimit from './FilterByLimit';
-import FilterByPage from './FilterByPage';
 import * as enumFilters from '../enum/filters';
 import '../styles/filters.scss';
 import 'react-toastify/dist/ReactToastify.css';
@@ -65,15 +64,6 @@ class Filters extends PureComponent {
                                             onChange={ this.props.handleFilter }
                                         />
                                     );
-                                // case enumFilters.OFFSET:
-                                //     return (
-                                //         <FilterByPage
-                                //             { ...options }
-                                //             key={ options.id }
-                                //             value={ this.props.filtersValues.offset }
-                                //             onChange={ this.props.handleFilter }
-                                //         />
-                                //     );
                                 default:
                                     return null;
                             }

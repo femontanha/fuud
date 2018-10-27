@@ -1,0 +1,21 @@
+.pagination {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.pagination__btn-holder {
+  text-align: center;
+  width: 100px;
+}
+
+.pagination__btn {
+  background-color: transparent;
+  border: 0;
+  border: 1px dotted;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 10px;
+}
