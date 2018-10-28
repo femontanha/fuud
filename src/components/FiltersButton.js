@@ -12,7 +12,7 @@ const FiltersButton = ({ onClick, show }) => {
 
     return (
         <button className="filters-button" onClick={ onClick }>
-            Filtrar Playlist
+            Filtrar Playlists
             <i className={ triangleCSS } />
         </button>
     );

@@ -21,6 +21,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--main-text);
   font-size: 1.6rem;
+
+  --main-primary-color: #BC2026;
+  --main-primary-darken-color: #90161b;
+  --main-btn-radius: 5px;
+  --main-text: #333;
+  --main-bg-color: #f4f0ec;
+  --main-bg-darken-color: #eae5e0;
+  --main-constrast-color: #fff;
+
+  &.dark {
+    --main-primary-color: #222;
+    --main-primary-darken-color: #000;
+    --main-text: #FFF;
+    --main-bg-color: #404040;
+    --main-bg-darken-color: #2f2f2f;
+    --main-constrast-color: #000;
+  }
 }
 
 code {

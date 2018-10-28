@@ -4,4 +4,13 @@
   height: 60px;
   justify-content: center;
   padding: 15px 0;
+  position: relative;
+
+  .switch-theme {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--main-primary-darken-color);
+    padding: 10px;
+  }
 }
