@@ -20,15 +20,15 @@ self.__precacheManifest = [
     "url": "/fuud/static/js/runtime~main.2201bb86.js"
   },
   {
-    "revision": "f1715fd761d9355a7209",
-    "url": "/fuud/static/js/main.f1715fd7.chunk.js"
+    "revision": "41c341225c95a9e65fef",
+    "url": "/fuud/static/js/main.41c34122.chunk.js"
   },
   {
     "revision": "cb5347866c173fa3b997",
     "url": "/fuud/static/js/1.cb534786.chunk.js"
   },
   {
-    "revision": "f1715fd761d9355a7209",
+    "revision": "41c341225c95a9e65fef",
     "url": "/fuud/static/css/main.3ad41c92.chunk.css"
   },
   {
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/fuud/static/css/1.b63b2e4f.chunk.css"
   },
   {
-    "revision": "541cf69d17e1c6c31408945cdd918864",
+    "revision": "6c5e16baa35a8455139333ae43d93595",
     "url": "/fuud/index.html"
   }
 ];
