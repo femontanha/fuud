@@ -1,4 +1,4 @@
-# FUUD
+<img src="https://github.com/femontanha/fuud/blob/master/src/static/spotifood-github.png?raw=true" width="300" alt="fuud" />
 
 ## Dependencies
 
