@@ -1,4 +1,4 @@
-# FUUD
+<img src="https://github.com/femontanha/fuud/blob/master/src/static/spotifood-github.png?raw=true" width="300" alt="fuud" />
 
 ## Dependencies
 
@@ -13,4 +13,4 @@ Run `yarn intall`
 
 ## Running the project
 
-Run `yarn start` or you can access the [DEMO](https://github.com/femontanha/fuud) page.
+Run `yarn start` or you can access the [DEMO](https://femontanha.github.io/fuud/) page.
