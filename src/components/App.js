@@ -18,8 +18,8 @@ class App extends React.Component {
                 <main className="app-main">
                     <Header />
                     <Switch>
-                        <Route path="/login" component={Login} />
-                        <PrivateRoute exact path="/" component={ Home } />
+                        <Route path={ `${process.env.PUBLIC_URL}/login` } component={Login} />
+                        <PrivateRoute exact path={ `${process.env.PUBLIC_URL}/` } component={ Home } />
                         <Route component={ NotFound } />
                     </Switch>
                 </main>
