@@ -7,4 +7,4 @@ export const SPOTIFY_AUTHORIZE =`https://accounts.spotify.com/authorize?client_i
 export const REFRESH_INTERVAL = 30000;
 export const COUNTDOWN_INTERVAL = REFRESH_INTERVAL / 1000;
 // Filter
-export const FILTERS_ENDPOINT = 'http://www.mocky.io/v2/5a25fade2e0000213aa90776';
+export const FILTERS_ENDPOINT = 'https://www.mocky.io/v2/5a25fade2e0000213aa90776';
