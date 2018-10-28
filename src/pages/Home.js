@@ -8,6 +8,7 @@ import FiltersButton from '../components/FiltersButton';
 import Filters from '../components/Filters';
 import Playlist from '../components/Playlist';
 import Pagination from '../components/Pagination';
+import { REFRESH_INTERVAL } from '../constants';
 import '../styles/home.scss';
 
 class Home extends PureComponent {
@@ -31,12 +32,28 @@ class Home extends PureComponent {
                 offset: 0,
                 previous: null,
                 total: 0,
-            }
+            },
+            refreshRef: null,
         }
+
+        this.initRefreshPlaylists = this.initRefreshPlaylists.bind(this);
     }
 
     componentDidMount() {
         this.playlistAPI(this.state.filters);
+        this.initRefreshPlaylists();
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.state.refreshRef);
+      }
+
+    initRefreshPlaylists() {
+        const refreshRef = setInterval(() => {
+            this.playlistAPI(this.state.filters);
+        }, REFRESH_INTERVAL);
+
+        this.setState({ refreshRef });
     }
 
     playlistAPI(filters) {
