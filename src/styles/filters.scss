@@ -7,6 +7,15 @@
   flex-wrap: wrap;
 }
 
+.filters-form__name {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.filters-form__name-input {
+  text-align: center;
+}
+
 .filters-form__fieldset {
   text-align: center;
   background-color: #FFF;
@@ -21,7 +30,3 @@
   display: block;
   margin-bottom: 10px;
 }
-
-// .filters-form__input {
-//   width: 100%;
-// }

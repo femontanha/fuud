@@ -3,6 +3,7 @@ import moment from 'moment';
 import { ToastContainer, toast } from "react-toastify";
 import playlistService from '../services/playlist';
 import parsePlayListUrl from '../lib/parsePlaylistUrl';
+import escapeRegExp from '../lib/escapeRegExp';
 import FiltersButton from '../components/FiltersButton';
 import Filters from '../components/Filters';
 import Playlist from '../components/Playlist';
@@ -16,6 +17,7 @@ class Home extends PureComponent {
         this.state = {
             message: '',
             playlist: [],
+            filteredPlaylists: null,
             filters: {
                 country: 'BR',
                 timestamp: moment().format(),
@@ -63,6 +65,7 @@ class Home extends PureComponent {
                 this.setState({
                     message: data.message,
                     playlist: items,
+                    filteredPlaylists: null,
                     filters: {
                         ...filters,
                     },
@@ -98,6 +101,19 @@ class Home extends PureComponent {
         this.playlistAPI(filters);
     }
 
+    handleFilterByName = (value) => {
+        if (value === '') {
+            this.setState({ filteredPlaylists: null });
+            return;
+        }
+
+        const { playlist } = this.state;
+        const filteredPlaylists = playlist
+            .filter((item) => item.name.toLowerCase().search(escapeRegExp(value).toLowerCase()) !== -1);
+
+        this.setState({ filteredPlaylists });
+    }
+
     render() {
         const {
             playlist,
@@ -105,6 +121,7 @@ class Home extends PureComponent {
             message,
             pagination,
             showFilters,
+            filteredPlaylists,
         } = this.state;
 
         return(
@@ -115,6 +132,7 @@ class Home extends PureComponent {
                     <section className="app-home__filters">
                         <Filters
                             handleFilter={ this.handleFilter.bind(this) }
+                            handleFilterByName={ this.handleFilterByName.bind(this) }
                             filtersValues={ filters }
                         />
                     </section>
@@ -130,12 +148,15 @@ class Home extends PureComponent {
                         { message }
                     </h1>
                     <Playlist
-                        playlist={ playlist }
+                        playlist={ filteredPlaylists ? filteredPlaylists : playlist }
                     />
-                    <Pagination
-                        { ...pagination }
-                        onClick={ this.handlePagination.bind(this) }
-                    />
+                    {
+                        !filteredPlaylists &&
+                        <Pagination
+                            { ...pagination }
+                            onClick={ this.handlePagination.bind(this) }
+                        />
+                    }
                 </section>
             </div>
         );
