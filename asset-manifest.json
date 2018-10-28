@@ -1,7 +1,7 @@
 {
-  "main.css": "/fuud/static/css/main.837049ba.chunk.css",
-  "main.js": "/fuud/static/js/main.36b5bc7e.chunk.js",
-  "main.js.map": "/fuud/static/js/main.36b5bc7e.chunk.js.map",
+  "main.css": "/fuud/static/css/main.3ad41c92.chunk.css",
+  "main.js": "/fuud/static/js/main.f1715fd7.chunk.js",
+  "main.js.map": "/fuud/static/js/main.f1715fd7.chunk.js.map",
   "static/css/1.b63b2e4f.chunk.css": "/fuud/static/css/1.b63b2e4f.chunk.css",
   "static/js/1.cb534786.chunk.js": "/fuud/static/js/1.cb534786.chunk.js",
   "static/js/1.cb534786.chunk.js.map": "/fuud/static/js/1.cb534786.chunk.js.map",
@@ -11,9 +11,9 @@
   "static/media/home.scss": "/fuud/static/media/loading-inverted.6f8f2d26.svg",
   "static/media/login.scss": "/fuud/static/media/app-bg.47494836.png",
   "static/media/spotifood.svg": "/fuud/static/media/spotifood.e6c8b4e8.svg",
-  "static/css/main.837049ba.chunk.css.map": "/fuud/static/css/main.837049ba.chunk.css.map",
+  "static/css/main.3ad41c92.chunk.css.map": "/fuud/static/css/main.3ad41c92.chunk.css.map",
   "static/css/1.b63b2e4f.chunk.css.map": "/fuud/static/css/1.b63b2e4f.chunk.css.map",
   "index.html": "/fuud/index.html",
-  "precache-manifest.8553299461681af9005793a5413a8907.js": "/fuud/precache-manifest.8553299461681af9005793a5413a8907.js",
+  "precache-manifest.841e5c5fc58084070a79bb71541d8372.js": "/fuud/precache-manifest.841e5c5fc58084070a79bb71541d8372.js",
   "service-worker.js": "/fuud/service-worker.js"
 }
