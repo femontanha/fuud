@@ -19,7 +19,7 @@ class Login extends PureComponent {
 
         if (newToken) {
             localStorage.setItem('access-token', newToken);
-            history.push('/');
+            history.push(`${process.env.PUBLIC_URL}/`);
             this.setState({ hasRedirect: true });
         }
     }

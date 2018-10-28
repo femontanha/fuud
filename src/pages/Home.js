@@ -68,13 +68,12 @@ class Home extends PureComponent {
             if (rsp.status === 401) {
                 localStorage.removeItem('access-token');
                 this.props.history.push(`${process.env.PUBLIC_URL}/`);
-                return;
             }
 
             return rsp.json();
         })
         .then(data => {
-            if (data.error) {
+            if (data && data.error) {
                 toast.error(data.error.message);
             } else {
                 const {
