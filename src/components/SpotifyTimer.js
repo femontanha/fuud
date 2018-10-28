@@ -28,7 +28,6 @@ class SpotifyTimer extends PureComponent {
     }
 
     tick() {
-        console.log('tick');
         const countdown = this.state.countdown;
         this.setState({ countdown: countdown - 1 });
     }

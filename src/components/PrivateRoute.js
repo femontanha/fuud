@@ -5,7 +5,7 @@ import {
   } from "react-router-dom";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-    const accessToken = localStorage.key('access-token');
+    const accessToken = localStorage.getItem('access-token');
 
     return (
       <Route
