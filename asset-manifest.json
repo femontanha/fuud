@@ -1,7 +1,7 @@
 {
   "main.css": "/fuud/static/css/main.837049ba.chunk.css",
-  "main.js": "/fuud/static/js/main.5a7126af.chunk.js",
-  "main.js.map": "/fuud/static/js/main.5a7126af.chunk.js.map",
+  "main.js": "/fuud/static/js/main.36b5bc7e.chunk.js",
+  "main.js.map": "/fuud/static/js/main.36b5bc7e.chunk.js.map",
   "static/css/1.b63b2e4f.chunk.css": "/fuud/static/css/1.b63b2e4f.chunk.css",
   "static/js/1.cb534786.chunk.js": "/fuud/static/js/1.cb534786.chunk.js",
   "static/js/1.cb534786.chunk.js.map": "/fuud/static/js/1.cb534786.chunk.js.map",
@@ -14,6 +14,6 @@
   "static/css/main.837049ba.chunk.css.map": "/fuud/static/css/main.837049ba.chunk.css.map",
   "static/css/1.b63b2e4f.chunk.css.map": "/fuud/static/css/1.b63b2e4f.chunk.css.map",
   "index.html": "/fuud/index.html",
-  "precache-manifest.bee10158a81b5b7dbeae4d602309d38b.js": "/fuud/precache-manifest.bee10158a81b5b7dbeae4d602309d38b.js",
+  "precache-manifest.8553299461681af9005793a5413a8907.js": "/fuud/precache-manifest.8553299461681af9005793a5413a8907.js",
   "service-worker.js": "/fuud/service-worker.js"
 }
