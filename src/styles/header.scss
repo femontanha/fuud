@@ -6,11 +6,24 @@
   padding: 15px 0;
   position: relative;
 
+  @media (max-width: 500px) {
+    padding: 30px 0;
+  }
+
   .switch-theme {
     position: absolute;
     top: 15px;
     right: 15px;
     background-color: var(--main-primary-darken-color);
     padding: 10px;
+
+    @media (max-width: 500px) {
+      top: 0;
+      left: 50%;
+      right: auto;
+      margin-left: -45px;
+      padding: 5px 10px;
+      font-size: 1.2rem;
+    }
   }
 }
