@@ -23,6 +23,7 @@ body {
   font-size: 1.6rem;
 
   --main-primary-color: #BC2026;
+  --main-secondary-color: #ffce6f;
   --main-primary-darken-color: #90161b;
   --main-btn-radius: 5px;
   --main-text: #333;
@@ -32,6 +33,7 @@ body {
 
   &.dark {
     --main-primary-color: #222;
+    --main-secondary-color: #ffce6f;
     --main-primary-darken-color: #000;
     --main-text: #FFF;
     --main-bg-color: #404040;

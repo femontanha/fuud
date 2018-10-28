@@ -16,6 +16,8 @@ class Filters extends PureComponent {
         this.state = {
             filters: [],
         }
+
+        this.props.loaded(false);
     }
 
     componentDidMount() {
@@ -27,6 +29,7 @@ class Filters extends PureComponent {
             .then(data => {
                 const filters = data.filters || [];
                 this.setState({ filters })
+                this.props.loaded(true);
             })
             .catch(err => console.error(err));
     }
@@ -87,6 +90,7 @@ Filters.propTypes = {
         limit: PropTypes.number.isRequired,
         offset: PropTypes.number.isRequired
     }),
+    loaded: PropTypes.func.isRequired,
 };
 
 export default Filters;

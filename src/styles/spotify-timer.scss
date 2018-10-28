@@ -1,0 +1,16 @@
+.spotify-timer {
+  margin: 0;
+  background-color: var(--main-primary-darken-color);
+  color: #FFF;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 15px 0;
+}
+
+.spotify-timer__seconds {
+  font-weight: 800;
+  color: var(--main-secondary-color);
+  display: inline-block;
+  width: 20px;
+}

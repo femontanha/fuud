@@ -1,3 +1,24 @@
+.app-home__filters {
+  background-color: var(--main-primary-darken-color);
+  min-height: 100px;
+  background-image: url('../static/loading-inverted.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  .filters-form {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+  }
+
+  &.is-loaded {
+    background-image: none;
+
+    .filters-form {
+      opacity: 1;
+    }
+  }
+}
+
 .app-home__filters-btn {
   text-align: center;
 }
@@ -5,6 +26,19 @@
 .app-home__playlist {
   background-color: var(--main-bg-color);
   padding-top: 60px;
+
+  .app-home__playlist-name,
+  .playlist-grid {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+  }
+
+  &.is-loaded {
+    .app-home__playlist-name,
+    .playlist-grid {
+      opacity: 1;
+    }
+  }
 }
 
 .app-home__playlist-name {

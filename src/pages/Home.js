@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
+import classNames from 'classnames';
 import { ToastContainer, toast } from "react-toastify";
 import playlistService from '../services/playlist';
 import parsePlayListUrl from '../lib/parsePlaylistUrl';
 import escapeRegExp from '../lib/escapeRegExp';
+import SpotifyTimer from '../components/SpotifyTimer';
 import FiltersButton from '../components/FiltersButton';
 import Filters from '../components/Filters';
 import Playlist from '../components/Playlist';
@@ -34,6 +36,8 @@ class Home extends PureComponent {
                 total: 0,
             },
             refreshRef: null,
+            isFiltersLoaded: false,
+            isPlaylistsLoaded: false,
         }
 
         this.initRefreshPlaylists = this.initRefreshPlaylists.bind(this);
@@ -57,11 +61,14 @@ class Home extends PureComponent {
     }
 
     playlistAPI(filters) {
+        this.setState({ isPlaylistsLoaded: false });
+
         return playlistService(filters)
         .then(rsp => {
             if (rsp.status === 401) {
                 localStorage.removeItem('access-token');
                 this.props.history.push('/');
+                return;
             }
 
             return rsp.json();
@@ -95,9 +102,17 @@ class Home extends PureComponent {
                     }
                 });
             }
+
+            this.setState({ isPlaylistsLoaded: true });
         })
         .catch(err => console.error(err));
 
+    }
+
+    handleLoadingFilters(isLoaded) {
+        this.setState({
+            isFiltersLoaded: isLoaded,
+        });
     }
 
     handleFilter(key, value) {
@@ -139,18 +154,32 @@ class Home extends PureComponent {
             pagination,
             showFilters,
             filteredPlaylists,
+            isFiltersLoaded,
+            isPlaylistsLoaded,
         } = this.state;
+
+        const homeFiltersCSS = classNames(
+            'app-home__filters',
+            { 'is-loaded': isFiltersLoaded }
+        );
+
+        const homePlaylistsCSS = classNames(
+            'app-home__playlist',
+            { 'is-loaded': isPlaylistsLoaded }
+        );
 
         return(
             <div className="app-home">
+                <SpotifyTimer />
                 <ToastContainer autoClose={3000} />
                 {
                     showFilters &&
-                    <section className="app-home__filters">
+                    <section className={ homeFiltersCSS }>
                         <Filters
                             handleFilter={ this.handleFilter.bind(this) }
                             handleFilterByName={ this.handleFilterByName.bind(this) }
                             filtersValues={ filters }
+                            loaded={ this.handleLoadingFilters.bind(this) }
                         />
                     </section>
                 }
@@ -160,7 +189,7 @@ class Home extends PureComponent {
                         show={ showFilters }
                     />
                 </section>
-                <section className="app-home__playlist">
+                <section className={ homePlaylistsCSS }>
                     <h1 className="app-home__playlist-name">
                         { message }
                     </h1>
