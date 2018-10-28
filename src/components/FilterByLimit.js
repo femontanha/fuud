@@ -12,9 +12,9 @@ class FilterByLimit extends PureComponent {
 
     handleChange(event) {
         const key = event.target.id;
-        const value = parseInt(event.target.value);
+        let value = parseInt(event.target.value);
 
-        if (isNaN(value)) return;
+        if (isNaN(value)) value = '';
 
         this.setState({ value })
         this.props.onChange(key, value);

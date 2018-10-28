@@ -73,7 +73,13 @@ class Home extends PureComponent {
             return rsp.json();
         })
         .then(data => {
-            if (data && data.error) {
+            if (data.error) {
+                if (data.error.status === 400) {
+                    this.setState({
+                        isPlaylistsLoaded: true,
+                    });
+                }
+
                 toast.error(data.error.message);
             } else {
                 const {
@@ -98,11 +104,10 @@ class Home extends PureComponent {
                         offset,
                         previous,
                         total,
-                    }
+                    },
+                    isPlaylistsLoaded: true,
                 });
             }
-
-            this.setState({ isPlaylistsLoaded: true });
         })
         .catch(err => console.error(err));
 
