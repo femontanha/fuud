@@ -19,7 +19,7 @@ const Pagination = ({
             </div>
             {
                 total > 0 && limit < total &&
-                <span>Total de <strong>{ total }</strong> playlists</span>
+                <span className="pagination__total">Total de <strong>{ total }</strong> playlists</span>
             }
             <div className="pagination__btn-holder">
                 {
